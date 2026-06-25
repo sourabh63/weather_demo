@@ -3,8 +3,6 @@ version: '3.8'
 services:
   backend:
     build: ./backend
-    ports:
-      - "8000:8000"
     restart: unless-stopped
     # Environment variables could be added here to hide API keys in production
     # environment:
@@ -13,7 +11,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8082:80"
     depends_on:
       - backend
     restart: unless-stopped
