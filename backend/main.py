@@ -127,4 +127,5 @@ async def chat(request: ChatRequest):
         # No tool called
         return {"reply": message.get("content", "I am not sure how to answer that.")}
 
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+if os.path.isdir("../frontend"):
+    app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
