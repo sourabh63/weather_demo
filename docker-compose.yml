@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # Environment variables could be added here to hide API keys in production
+    # environment:
+    #   - DEEPSEEK_API_KEY=your_key
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
